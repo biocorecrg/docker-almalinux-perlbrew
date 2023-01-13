@@ -13,11 +13,11 @@ jobs:
       packages: write
       contents: read
     strategy:
+      fail-fast: true
+      max-parallel: 1
       matrix:
         branch: ['8', '9', 'latest']
         folder: ['base', 'pyenv3', 'pyenv3-java']
-        fail-fast: true
-        max-parallel: 1
     steps:
       -
         name: Checkout
