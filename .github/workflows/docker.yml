@@ -23,7 +23,7 @@ jobs:
         name: Checkout
         uses: Bhacaz/checkout-files@v2
         with:
-          files: ${{matrix.folder}}
+          files: ./${{matrix.folder}}/
           branch: ${{ matrix.branch }}
       -
         name: Set up QEMU
