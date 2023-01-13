@@ -58,4 +58,4 @@ jobs:
           push: true
           tags: |
             ${{ secrets.DOCKERHUB_ACCOUNT }}/${{env.DOCKER_IMAGE_PREFIX}}-${{ matrix.folder }}:${{ env.DOCKER_IMAGE_BRANCH }}
-            ghcr.io/${{ github.repository_owner }}/docker-{{env.DOCKER_IMAGE_PREFIX}}-${{ matrix.folder }}:${{ env.DOCKER_IMAGE_BRANCH }}
+            ghcr.io/${{ github.repository_owner }}/docker-${{env.DOCKER_IMAGE_PREFIX}}-${{ matrix.folder }}:${{ env.DOCKER_IMAGE_BRANCH }}
