@@ -1,15 +1,14 @@
-FROM biocorecrg/almalinux-perlbrew-pyenv3:8
+FROM biocorecrg/almalinux-perlbrew-pyenv3:9
 
 # File Author / Maintainer
 MAINTAINER Toni Hermoso Pulido <toni.hermoso@crg.eu>
 MAINTAINER Luca Cozzuto <lucacozzuto@gmail.com> 
 
-ARG JAVA_VERSION=11
-ARG MAVEN_VERSION=3.6.3
+ARG JAVA_VERSION=17
+ARG MAVEN_VERSION=3.8.7
 
 ENV JAVA_HOME /usr/lib/jvm/java-openjdk
 
-# Install Redis
 RUN yum update -y
 # Install Java
 RUN yum install -y java-$JAVA_VERSION-openjdk java-$JAVA_VERSION-openjdk-devel
