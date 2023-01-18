@@ -11,8 +11,8 @@ ENV JAVA_HOME /usr/lib/jvm/java-${JAVA_VERSION}-openjdk
 
 RUN yum update -y
 # Install Java
+RUN yum remove -y java-openjdk-headless
 RUN yum install -y java-$JAVA_VERSION-openjdk java-$JAVA_VERSION-openjdk-devel
-# TODO: Fix alternative
 
 # Install maven
 RUN cd /usr/local; curl --fail --silent --show-error --location --remote-name http://apache.rediris.es//maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz
