@@ -9,7 +9,6 @@ ARG MAVEN_VERSION=3.6.3
 
 ENV JAVA_HOME /usr/lib/jvm/java-openjdk
 
-# Install Redis
 RUN yum update -y
 # Install Java
 RUN yum install -y java-$JAVA_VERSION-openjdk java-$JAVA_VERSION-openjdk-devel
