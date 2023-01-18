@@ -7,13 +7,14 @@ MAINTAINER Luca Cozzuto <lucacozzuto@gmail.com>
 ARG JAVA_VERSION=17
 ARG MAVEN_VERSION=3.8.7
 
-ENV JAVA_HOME /usr/lib/jvm/java-openjdk
+ENV JAVA_HOME /usr/lib/jvm/java-${JAVA_VERSION}-openjdk
 
 RUN yum update -y
 # Install Java
 RUN yum install -y java-$JAVA_VERSION-openjdk java-$JAVA_VERSION-openjdk-devel
-# Install maven
+# TODO: Fix alternative
 
+# Install maven
 RUN cd /usr/local; curl --fail --silent --show-error --location --remote-name http://apache.rediris.es//maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz
 
 RUN cd /usr/local; tar zxf apache-maven-$MAVEN_VERSION-bin.tar.gz
