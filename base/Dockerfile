@@ -11,6 +11,9 @@ ARG PERL_BUILD=--thread
 # Base Perl and builddep
 RUN yum update -y
 RUN yum install -y perl yum-utils
+
+RUN dnf config-manager --set-enabled crb
+RUN dnf install -y epel-release
 RUN yum-builddep -y perl
 RUN yum install -y bzip2 zip procps
 RUN yum groupinstall -y 'Development Tools'
