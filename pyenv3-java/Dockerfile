@@ -15,7 +15,7 @@ RUN yum update -y
 RUN yum install -y java-$JAVA_VERSION-openjdk java-$JAVA_VERSION-openjdk-devel
 # Install maven
 
-RUN cd /usr/local; curl --fail --silent --show-error --location --remote-name http://apache.rediris.es//maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz
+RUN cd /usr/local; curl --fail --silent --show-error --location --remote-name https://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz
 
 RUN cd /usr/local; tar zxf apache-maven-$MAVEN_VERSION-bin.tar.gz
 RUN cd /usr/local; rm apache-maven-$MAVEN_VERSION-bin.tar.gz
