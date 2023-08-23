@@ -13,7 +13,7 @@ jobs:
       packages: write
       contents: read
     strategy:
-      fail-fast: true
+      fail-fast: false
       max-parallel: 1
       matrix:
         branch: ['9', '8', 'main']
