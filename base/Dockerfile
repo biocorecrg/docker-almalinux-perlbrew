@@ -1,4 +1,4 @@
-FROM almalinux:8
+FROM almalinux:latest
 
 # File Author / Maintainer
 MAINTAINER Toni Hermoso Pulido <toni.hermoso@crg.eu>
