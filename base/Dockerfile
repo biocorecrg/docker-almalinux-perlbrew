@@ -1,8 +1,5 @@
 FROM almalinux:9
 
-# File Author / Maintainer
-MAINTAINER Toni Hermoso Pulido <toni.hermoso@crg.eu>
-
 ARG PERLBREW_ROOT=/usr/local/perl
 ARG PERL_VERSION=5.36.0
 # Enable perl build options. Example: --build-arg PERL_BUILD="--thread --debug"
@@ -22,18 +19,23 @@ RUN mkdir -p $PERLBREW_ROOT
 
 RUN bash -c '\curl -L https://install.perlbrew.pl | bash'
 
-ENV PATH $PERLBREW_ROOT/bin:$PATH
-ENV PERLBREW_PATH $PERLBREW_ROOT/bin
+ENV PATH=$PERLBREW_ROOT/bin:$PATH
+ENV PERLBREW_PATH=$PERLBREW_ROOT/bin
 
+RUN yum install -y perl-ExtUtils-MakeMaker perl-CPAN perl-Module-Pluggable
+ENV PERL_MM_USE_DEFAULT=1
+RUN cpan -fi Test::More; exit 0 # Hack to make it work
+RUN cpan -i Test::More Devel::PatchPerl
+RUN perlbrew install-patchperl
 RUN perlbrew --notest install $PERL_BUILD perl-$PERL_VERSION
 RUN perlbrew install-cpanm
 RUN bash -c 'source $PERLBREW_ROOT/etc/bashrc'
-		
-ENV PERLBREW_ROOT $PERLBREW_ROOT
-ENV PATH $PERLBREW_ROOT/perls/perl-$PERL_VERSION/bin:$PATH
-ENV PERLBREW_PERL perl-$PERL_VERSION
-ENV PERLBREW_MANPATH $PELRBREW_ROOT/perls/perl-$PERL_VERSION/man
-ENV PERLBREW_SKIP_INIT 1
+
+ENV PERLBREW_ROOT=$PERLBREW_ROOT
+ENV PATH=$PERLBREW_ROOT/perls/perl-$PERL_VERSION/bin:$PATH
+ENV PERLBREW_PERL=perl-$PERL_VERSION
+ENV PERLBREW_MANPATH=$PELRBREW_ROOT/perls/perl-$PERL_VERSION/man
+ENV PERLBREW_SKIP_INIT=1
 
 RUN ln -s $PERLBREW_ROOT/perls/perl-$PERL_VERSION/bin/perl /usr/local/bin/perl
 
