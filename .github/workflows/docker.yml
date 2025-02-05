@@ -2,13 +2,14 @@ name: Publish Docker images
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * 0'
+    - cron: '0 0 * * 2'
 env:
   DOCKER_IMAGE_PREFIX: almalinux-perlbrew
 jobs:
   push_to_registries:
     name: Push Docker image to multiple registries
-    runs-on: ubuntu-latest
+    runs-on: 
+      group: perlbrew
     permissions:
       packages: write
       contents: read
