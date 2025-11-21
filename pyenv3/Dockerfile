@@ -1,11 +1,11 @@
-FROM biocorecrg/almalinux-perlbrew:9
+FROM biocorecrg/almalinux-perlbrew:10
 
 # File Author / Maintainer
 MAINTAINER Toni Hermoso Pulido <toni.hermoso@crg.eu>
-MAINTAINER Luca Cozzuto <lucacozzuto@gmail.com> 
+MAINTAINER Luca Cozzuto <lucacozzuto@gmail.com>
 
 ARG PYENV_ROOT=/usr/local/python
-ARG PYTHON_VERSION=3.11.1
+ARG PYTHON_VERSION=3.12.11
 
 ENV PYENV_ROOT $PYENV_ROOT
 

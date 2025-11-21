@@ -1,7 +1,7 @@
-FROM almalinux:9
+FROM almalinux:10
 
 ARG PERLBREW_ROOT=/usr/local/perl
-ARG PERL_VERSION=5.36.0
+ARG PERL_VERSION=5.42.0
 # Enable perl build options. Example: --build-arg PERL_BUILD="--thread --debug"
 ARG PERL_BUILD=--thread
 

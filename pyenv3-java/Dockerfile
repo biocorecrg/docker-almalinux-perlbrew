@@ -1,8 +1,8 @@
-FROM biocorecrg/almalinux-perlbrew-pyenv3:9
+FROM biocorecrg/almalinux-perlbrew-pyenv3:10
 
 # File Author / Maintainer
 MAINTAINER Toni Hermoso Pulido <toni.hermoso@crg.eu>
-MAINTAINER Luca Cozzuto <lucacozzuto@gmail.com> 
+MAINTAINER Luca Cozzuto <lucacozzuto@gmail.com>
 
 ARG JAVA_VERSION=17
 ARG MAVEN_VERSION=3.8.7
