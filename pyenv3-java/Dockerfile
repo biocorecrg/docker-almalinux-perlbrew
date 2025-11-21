@@ -4,8 +4,8 @@ FROM biocorecrg/almalinux-perlbrew-pyenv3:10
 MAINTAINER Toni Hermoso Pulido <toni.hermoso@crg.eu>
 MAINTAINER Luca Cozzuto <lucacozzuto@gmail.com>
 
-ARG JAVA_VERSION=17
-ARG MAVEN_VERSION=3.8.7
+ARG JAVA_VERSION=21
+ARG MAVEN_VERSION=3.9.11
 
 ENV JAVA_HOME /usr/lib/jvm/java-${JAVA_VERSION}-openjdk
 
