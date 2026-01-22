@@ -25,7 +25,12 @@ ENV PERLBREW_PATH=$PERLBREW_ROOT/bin
 RUN yum install -y perl-ExtUtils-MakeMaker perl-CPAN perl-Module-Pluggable
 ENV PERL_MM_USE_DEFAULT=1
 RUN cpan -fi Test::More; exit 0 # Hack to make it work
-RUN cpan -i Test::More Devel::PatchPerl
+
+RUN yum install -y perl-App-cpanminus perl make gcc tar
+RUN rm -rf ~/.cpan
+RUN cpanm --notest Test::More Devel::PatchPerl
+
+# RUN cpan -i Test::More Devel::PatchPerl
 RUN perlbrew install-patchperl
 RUN perlbrew --notest install $PERL_BUILD perl-$PERL_VERSION
 RUN perlbrew install-cpanm
