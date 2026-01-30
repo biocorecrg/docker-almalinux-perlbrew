@@ -28,6 +28,7 @@ RUN cpan -fi Test::More; exit 0 # Hack to make it work
 
 RUN yum install -y perl-App-cpanminus perl make gcc tar
 RUN rm -rf ~/.cpan
+ENV TMPDIR=/tmp
 RUN cpanm --notest Test::More Devel::PatchPerl
 
 # RUN cpan -i Test::More Devel::PatchPerl
